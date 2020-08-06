@@ -1,0 +1,22 @@
+{
+  "name": "formularioorcamento",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dfbert/formularioOrcamento.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dfbert/formularioOrcamento/issues"
+  },
+  "homepage": "https://github.com/dfbert/formularioOrcamento#readme",
+  "dependencies": {
+    "bootstrap-vue": "^2.15.0"
+  }
+}
