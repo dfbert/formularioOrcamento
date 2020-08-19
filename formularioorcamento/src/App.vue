@@ -304,4 +304,23 @@ div.consultor {
   font-size: 14px;
   margin: 0 0 5px;
 }
+.tooltip-inner {
+    background-color: #F5F5F5 !important;
+    color: #166e80 !important;
+    max-width: 400px !important;
+    text-align: left !important;
+    font-style: italic !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    padding: 0.9rem !important;
+    box-shadow: 0 0 10px 5px rgba(47,47,47,.1)!important;
+}
+
+.tooltip.b-tooltip{
+    opacity: 1 !important;
+}
+
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before{
+    border-top-color: #F5F5F5 !important;
+}
 </style>

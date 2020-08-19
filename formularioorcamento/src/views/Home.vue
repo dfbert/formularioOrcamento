@@ -77,7 +77,7 @@ export default {
         icon: "thumbtack",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "O seguro reembolsará os valores que você vier a ser responsabilizado civilmente, por sentença judicial transitada e julgado ou acordo, por danos morais decorrentes de danos corporais ou materiais causados a terceiros"
+          "O seguro reembolsará os valores que você vier a ser responsabilizado civilmente, por sentença judicial transitada e julgado ou acordo, por danos morais decorrentes de danos corporais ou materiais causados a terceiros",
       },
       {
         nome: "Incêndio, Queda de Raio e Explosão",
@@ -85,7 +85,7 @@ export default {
         icon: "fire-alt",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante os prejuízos causados ao seu estabelecimento e residência, no caso de um incêndio, queda de raio ou explosão"
+          "Garante os prejuízos causados ao seu estabelecimento e residência, no caso de um incêndio, queda de raio ou explosão",
       },
       {
         nome: "Responsabilidade Civil Operações",
@@ -93,7 +93,15 @@ export default {
         icon: "hard-hat",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante o reembolso das indenizações pagas a terceiros por reparação de danos materiais ou corporais sofridos acidentalmente em decorrência da existência ou operação da empresa"
+          "Garante o reembolso das indenizações pagas a terceiros por reparação de danos materiais ou corporais sofridos acidentalmente em decorrência da existência ou operação da empresa",
+      },
+      {
+        nome: "Responsabilidade Civil Profissional",
+        codigo: "24",
+        icon: "briefcase",
+        questionarios: [1, 2, 3, 4],
+        descricao:
+          "Entre os mais vendidos nos últimos anos para profissionais do direito, o Seguro de Responsabilidade Civil Profissional, também conhecido como Seguro de Erros e Omissões Profissionais, atenua judicial e financeiramente eventuais falhas na execução do seu trabalho.",
       },
       {
         nome: "Vendaval, Furação Ciclone, Tornado e Granizo",
@@ -101,7 +109,7 @@ export default {
         icon: "poo-storm",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante danos materiais causados aos bens por vendaval, furacão, ciclone, tornado e granizo "
+          "Garante danos materiais causados aos bens por vendaval, furacão, ciclone, tornado e granizo ",
       },
       {
         nome: "Roubo de Valores no Caixa da Empresa",
@@ -109,7 +117,7 @@ export default {
         icon: "cash-register",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante o pagamento pelos prejuízos decorrentes de roubo ou furto qualificado ou simples tentativa de dinheiro ou cheques, comprovadamente emitidos ou recebidos, relativos ao movimento diário do caixa do dia do evento"
+          "Garante o pagamento pelos prejuízos decorrentes de roubo ou furto qualificado ou simples tentativa de dinheiro ou cheques, comprovadamente emitidos ou recebidos, relativos ao movimento diário do caixa do dia do evento",
       },
       {
         nome: "Alagamento e Inundação",
@@ -117,7 +125,7 @@ export default {
         icon: "tint",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante o pagamento de prejuízos pelas perdas ou danos materiais causados aos bens segurados por alagamento ou inundação "
+          "Garante o pagamento de prejuízos pelas perdas ou danos materiais causados aos bens segurados por alagamento ou inundação ",
       },
       {
         nome: "Desmoronamento",
@@ -125,7 +133,7 @@ export default {
         icon: "house-damage",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante danos causados ao consultório por desmoronamento total ou parcial do imóvel e os custos de proteção dos bens segurados"
+          "Garante danos causados ao consultório por desmoronamento total ou parcial do imóvel e os custos de proteção dos bens segurados",
       },
       {
         nome: "Pequenas Obras",
@@ -133,7 +141,7 @@ export default {
         icon: "hammer",
         questionarios: [1, 2, 3, 4],
         descricao:
-          "Garante o pagamento de danos materiais causados aos bens decorrentes de origem súbita e imprevista onde se efetuarem pequenas obras de engenharia, ampliação, reparo ou reforma"
+          "Garante o pagamento de danos materiais causados aos bens decorrentes de origem súbita e imprevista onde se efetuarem pequenas obras de engenharia, ampliação, reparo ou reforma",
       },
 
       {
@@ -142,7 +150,7 @@ export default {
         icon: "procedures",
         questionarios: [5],
         descricao:
-          "Garante o pagamento de indenização em caso de diagnóstico de doenças graves, como por exemplo: Câncer, AVC, Infarto e outras"
+          "Garante o pagamento de indenização em caso de diagnóstico de doenças graves, como por exemplo: Câncer, AVC, Infarto e outras",
       },
       {
         nome: "Proteção Financeira por Perda de Renda",
@@ -150,7 +158,7 @@ export default {
         icon: "hand-holding-usd",
         questionarios: [5],
         descricao:
-          "Proteção financeira de sua renda no caso de você se afastar da atividade profissional por motivo de doença ou acidente"
+          "Proteção financeira de sua renda no caso de você se afastar da atividade profissional por motivo de doença ou acidente",
       },
       {
         nome: "Invalidez por Acidente",
@@ -158,7 +166,7 @@ export default {
         icon: "crutch",
         questionarios: [5],
         descricao:
-          "Garante o pagamento em caso de invalidez permanente de alguns membros ou órgãos causados por acidente"
+          "Garante o pagamento em caso de invalidez permanente de alguns membros ou órgãos causados por acidente",
       },
       {
         nome: "Seguro de Vida",
@@ -166,7 +174,7 @@ export default {
         icon: "heartbeat",
         questionarios: [5],
         descricao:
-          "Garante o pagamento em caso de morte natural ou por acidente, invalidez por acidente ou invalidez por doença"
+          "Garante o pagamento em caso de morte natural ou por acidente, invalidez por acidente ou invalidez por doença",
       },
       {
         nome: "Diagnóstico de Câncer",
@@ -174,7 +182,7 @@ export default {
         icon: "notes-medical",
         questionarios: [5],
         descricao:
-          "Garante o pagamento da indenização em caso de diagnóstico de alguns tipos de câncer"
+          "Garante o pagamento da indenização em caso de diagnóstico de alguns tipos de câncer",
       },
       {
         nome: "Despesas Médicas e Hospitalares por Acidente",
@@ -182,7 +190,7 @@ export default {
         icon: "hospital",
         questionarios: [5],
         descricao:
-          "Garante o reembolso de despesas médico hospitalares e odontológicas em caso de acidente"
+          "Garante o reembolso de despesas médico hospitalares e odontológicas em caso de acidente",
       },
       {
         nome: "Assistência com Funeral",
@@ -190,7 +198,7 @@ export default {
         icon: "cross",
         questionarios: [5],
         descricao:
-          "Garante a prestação de serviços com funeral e sepultamento a partir do acionamento de uma central telefônica disponivel 24 horas e 7 dias da semana"
+          "Garante a prestação de serviços com funeral e sepultamento a partir do acionamento de uma central telefônica disponivel 24 horas e 7 dias da semana",
       },
       {
         nome: "Equipamentos Eletrônicos",
@@ -198,7 +206,7 @@ export default {
         icon: "memory",
         questionarios: [1], //somente anti roubo
         descricao:
-          "Garante danos físicos, roubo e furto qualificado causado aos seus equipamentos eletrônicos portáteis do seu estabelecimento"
+          "Garante danos físicos, roubo e furto qualificado causado aos seus equipamentos eletrônicos portáteis do seu estabelecimento",
       },
       {
         nome: "Erros e Omissões Profissionais",
@@ -206,7 +214,7 @@ export default {
         icon: "angry",
         questionarios: [2, 7],
         descricao:
-          "Garante o pagamento das indenizações de prejuizo financeiro, dano material, moral e corporal, caso você seja condenado por decisão judicial transitado em julgado ou decisão final preferida por tribunal"
+          "Garante o pagamento das indenizações de prejuizo financeiro, dano material, moral e corporal, caso você seja condenado por decisão judicial transitado em julgado ou decisão final preferida por tribunal",
       },
       {
         nome: "Equipamentos Portáteis",
@@ -214,7 +222,7 @@ export default {
         icon: "laptop",
         questionarios: [6],
         descricao:
-          "Garante danos materiais, roubo e furto qualificado causado aos equipamentos eletrônicos portáteis, como Smartphones, notebooks, câmeras fotográficas e outros equipamentos seja para uso pessoal, profissional ou lazer"
+          "Garante danos materiais, roubo e furto qualificado causado aos equipamentos eletrônicos portáteis, como Smartphones, notebooks, câmeras fotográficas e outros equipamentos seja para uso pessoal, profissional ou lazer",
       },
       {
         nome: "Despesas Fixas",
@@ -222,7 +230,7 @@ export default {
         icon: "file-invoice-dollar",
         questionarios: [1, 2, 3, 4], //somente anti roubo
         descricao:
-          "Garante o reembolso de salário, contas de água, luz, telefone, condominio, IPTU e aluguel, após a ocorrência de incêndio, raio e explosão que acarrete a paralisação das atividades exercidas na empresa"
+          "Garante o reembolso de salário, contas de água, luz, telefone, condominio, IPTU e aluguel, após a ocorrência de incêndio, raio e explosão que acarrete a paralisação das atividades exercidas na empresa",
       },
       {
         nome: "Seguro Finança Locatícia",
@@ -230,7 +238,7 @@ export default {
         icon: "home",
         questionarios: [4, 9],
         descricao:
-          "É um seguro que substitui um fiador em contratos de locação. Garante o pagamento do aluguel e de multa moratória. "
+          "É um seguro que substitui um fiador em contratos de locação. Garante o pagamento do aluguel e de multa moratória. ",
       },
       {
         nome: "Despesas de Defesa em Processos Judiciais",
@@ -238,7 +246,7 @@ export default {
         icon: "gavel",
         questionarios: [2, 7],
         descricao:
-          "Garante o pagamento de honorários advocatícios, laudos e pericias, depósitos recursais, sucumbências e demais despesas do processo nas esferas Civil, Administrativa, Criminal e Arbitral por reclamação de terceiro pela sua Prestação de Serviço"
+          "Garante o pagamento de honorários advocatícios, laudos e pericias, depósitos recursais, sucumbências e demais despesas do processo nas esferas Civil, Administrativa, Criminal e Arbitral por reclamação de terceiro pela sua Prestação de Serviço",
       },
       {
         nome: "Investimento Financeiro",
@@ -246,17 +254,17 @@ export default {
         icon: "dollar-sign",
         questionarios: [10],
         descricao:
-          "Garante um valor no futuro para sua aposentadoria através de uma previdencia privada"
+          "Garante um valor no futuro para sua aposentadoria através de uma previdencia privada",
       },
       {
         nome: "Consórcio Financeiro",
         codigo: "23",
         icon: "money-bill-wave",
-        questionarios: [], //falta tela
+        questionarios: [11],
         descricao:
-          "Garante a compra de imóveis, automóvel, credito para construção e giro de capital através de uma carta com taxa mais baixa do mercado"
-      }
-    ]
+          "Garante a compra de imóveis, automóvel, credito para construção e giro de capital através de uma carta com taxa mais baixa do mercado",
+      },
+    ],
   }),
   computed: {
     coberturasPesquisa() {
@@ -265,7 +273,7 @@ export default {
         if (!this.coberturasSelecionadas.includes(this.coberturas[i])) {
           pesquisa.push({
             label: this.coberturas[i].nome,
-            code: this.coberturas[i].codigo
+            code: this.coberturas[i].codigo,
           });
         }
       }
@@ -273,7 +281,7 @@ export default {
     },
     coberturasExibidas() {
       return this.colapsado ? this.coberturas : this.coberturas.slice(0, 11);
-    }
+    },
   },
   methods: {
     selecionaPesquisa(cobertura) {
@@ -314,12 +322,12 @@ export default {
           genero: null,
           dataNascimento: null,
           email: null,
-        ocupacao: null
-        }
+          ocupacao: null,
+        },
       };
       localStorage.setItem("cotacao", JSON.stringify(cotacao));
       this.$router.push(`/identificacao`);
-    }
-  }
+    },
+  },
 };
 </script>
