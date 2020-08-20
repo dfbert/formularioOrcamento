@@ -1,0 +1,19 @@
+.button {
+    background: #166e80;
+    color: white;
+    padding: 10px 30px;
+    border-radius: 42px;
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+@media (min-width: 374px) {
+    .button {
+        padding: 20px 45px;
+    }
+}
+
+.button:hover {
+    background: #17606f;
+}

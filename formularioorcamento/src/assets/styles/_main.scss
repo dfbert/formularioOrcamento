@@ -1,0 +1,11 @@
+/* SCSS Modules */
+@import "variables";
+@import "general-styles";
+
+/* Font Imports */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/* Component styles */
+@import "components/animations";
+@import "components/button";
+@import "components/sweet-alert";

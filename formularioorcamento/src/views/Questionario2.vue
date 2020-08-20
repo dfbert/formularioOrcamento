@@ -1,9 +1,11 @@
 <template>
   <div>
     <div class="row p-2">
-      <div
-        class="message"
-      >Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!</div>
+      <div class="message">
+        Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções
+        na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem
+        compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!
+      </div>
     </div>
     <div class="row mb-4">
       <div class="col-12 text-left d-flex align-items-center">
@@ -22,12 +24,7 @@
         <label for="numero">Número</label>
       </div>
       <div class="col-12 text-left mb-3 d-flex align-items-center">
-        <input
-          type="text"
-          id="numero"
-          placeholder="Número"
-          v-model="cotacao.questionarios['2'].numero"
-        />
+        <input type="text" id="numero" placeholder="Número" v-model="cotacao.questionarios['2'].numero" />
       </div>
 
       <div class="col-12 text-left d-flex align-items-center">
@@ -49,23 +46,25 @@
     <div class="button float-right" @click="avancar()">Avançar</div>
   </div>
 </template>
+
 <script>
-// @ is an alias to /src
 export default {
-  name: "Home",
+  name: 'Home',
+
   data: () => ({
     cotacao: {
-      questionarios: {}
-    }
+      questionarios: {},
+    },
   }),
+
   beforeMount() {
-    if (JSON.parse(localStorage.getItem("cotacao"))) {
-      let cotacao = JSON.parse(localStorage.getItem("cotacao"));
-      if (cotacao.questionarios["2"] == null) {
-        cotacao.questionarios["2"] = {
+    if (JSON.parse(localStorage.getItem('cotacao'))) {
+      let cotacao = JSON.parse(localStorage.getItem('cotacao'));
+      if (cotacao.questionarios['2'] == null) {
+        cotacao.questionarios['2'] = {
           cep: null,
           numero: null,
-          piso: null
+          piso: null,
         };
       }
       this.cotacao = cotacao;
@@ -73,22 +72,24 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   computed: {},
+
   methods: {
     voltar() {
       this.$router.back();
     },
 
     avancar() {
-      localStorage.setItem("cotacao", JSON.stringify(this.cotacao));
+      localStorage.setItem('cotacao', JSON.stringify(this.cotacao));
       let proximo;
       for (const quest of Object.keys(this.cotacao.questionarios).reverse()) {
         if (quest > 2) {
           proximo = `/questionario/${quest}`;
         }
       }
-      this.$router.push(proximo || "/contato");
-    }
-  }
+      this.$router.push(proximo || '/contato');
+    },
+  },
 };
 </script>
