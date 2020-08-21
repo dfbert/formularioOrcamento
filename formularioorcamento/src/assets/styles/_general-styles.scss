@@ -70,6 +70,11 @@ select:focus {
     border: 1px solid rgba($color: $primary-color, $alpha: 0.6);
 }
 
+small.feedback-invalido {
+    color: $error-color;
+    font-size: 0.7rem;
+}
+
 div.vs__dropdown-toggle {
     background: white;
     border: 1px solid #dfdfdf;

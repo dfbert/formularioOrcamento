@@ -8,18 +8,31 @@
         compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!
       </div>
     </div>
+
+    <!-- Nome Completo -->
     <div class="row">
       <div class="col-6 text-right mb-3 d-flex align-items-center">
         <label for="nomeCompleto">Qual é o seu nome completo?</label>
       </div>
-      <div class="col-6 text-left d-flex align-items-center">
-        <input type="text" id="nomeCompleto" placeholder="Seu nome" v-model="cotacao.identificacao.nomeCompleto" />
+      <div class="col-6 text-left d-flex flex-column align-items-end">
+        <input
+          @focus="contadores.nomeCompleto++"
+          :class="{ 'mb-1': !nomeCompletoValidation.valido && contadores.nomeCompleto != 0 }"
+          type="text"
+          id="nomeCompleto"
+          placeholder="Seu nome"
+          v-model="cotacao.identificacao.nomeCompleto"
+        />
+        <small v-if="!nomeCompletoValidation.valido && contadores.nomeCompleto != 0" class="feedback-invalido mb-1">{{
+          nomeCompletoValidation.mensagemErro
+        }}</small>
       </div>
 
+      <!-- Genêro -->
       <div class="col-12 col-md-6 text-md-right mb-md-3 d-flex align-items-center">
         <label for="genero">Informe o seu gênero:</label>
       </div>
-      <div class="col-12 col-md-6 text-center text-md-left mb-3 d-flex align-items-center">
+      <div class="col-12 col-md-6 text-center text-md-left mb-3 d-flex flex-column align-items-end">
         <div class="row w-100">
           <label for="masculino" class="col">
             <input type="radio" id="masculino" name="genero" value="masculino" v-model="cotacao.identificacao.genero" />
@@ -30,41 +43,67 @@
             <span>Feminino</span>
           </label>
         </div>
+        <!-- <small class="feedback-invalido align-self-right" v-if="!generoValidation.valido">
+          {{ generoValidation.mensagemErro }}
+        </small> -->
       </div>
 
+      <!-- Data de nascimento -->
       <div class="col-6 text-right mb-3 d-flex align-items-center">
         <label for="dataNascimento">Informe a sua data de nascimento:</label>
       </div>
-      <div class="col-6 text-left mb-3 d-flex align-items-center">
+      <div @click="contadores.dataNascimento++" class="col-6 text-left mb-3 d-flex flex-column align-items-end">
         <the-mask
+          :class="{ 'mb-1': !dataNascimentoValidation.valido && contadores.dataNascimento != 0 }"
           type="text"
           id="dataNascimento"
           :mask="['##/##/####']"
           placeholder="__/__/____"
           v-model="cotacao.identificacao.dataNascimento"
         />
+        <small v-if="!dataNascimentoValidation.valido && contadores.dataNascimento != 0" class="feedback-invalido mb-1">
+          {{ dataNascimentoValidation.mensagemErro }}
+        </small>
       </div>
 
+      <!-- E-mail -->
       <div class="col-6 text-right mb-3 d-flex align-items-center">
         <label for="email">Informe o seu e-mail:</label>
       </div>
-      <div class="col-6 text-left mb-3 d-flex align-items-center">
-        <input type="text" id="email" placeholder="Seu e-maill corporativo" v-model="cotacao.identificacao.email" />
+      <div class="col-6 text-left mb-3 d-flex flex-column align-items-end">
+        <input
+          @focus="contadores.email++"
+          :class="{ 'mb-1': !emailValidation.valido && contadores.email != 0 }"
+          type="text"
+          id="email"
+          placeholder="Seu e-maill corporativo"
+          v-model="cotacao.identificacao.email"
+        />
+        <small v-if="!emailValidation.valido && contadores.email != 0" class="feedback-invalido mb-1">{{
+          emailValidation.mensagemErro
+        }}</small>
       </div>
 
+      <!-- Ocupacao -->
       <div class="col-12 col-md-6 text-md-right mb-md-3 d-flex align-items-center">
         <label for="genero">Informe sua ocupação:</label>
       </div>
-      <div class="col-12 col-md-6 text-center text-md-left mb-3 d-flex align-items-center">
-        <div class="w-100">
+      <div class="col-12 col-md-6 text-center text-md-left mb-3 d-flex flex-column align-items-end">
+        <div @click="contadores.ocupacao++" class="w-100 text-right">
           <v-select
+            :class="{ 'mb-1': !ocupacaoValidation.valido && contadores.ocupacao != 0 }"
             :value="cotacao.identificacao.ocupacao"
             :options="ocupacoes"
             @input="selecionarOcupacao"
             placeholder="Digite aqui a sua ocupação"
           ></v-select>
+          <small v-if="!ocupacaoValidation.valido && contadores.ocupacao != 0" class="feedback-invalido mb-1">
+            {{ ocupacaoValidation.mensagemErro }}
+          </small>
         </div>
       </div>
+
+      <!-- Doc de profissão -->
       <div class="col-6 text-right mb-3 d-flex align-items-center" v-if="docProfissao">
         <label for="email">Informe o seu {{ docProfissao }}:</label>
       </div>
@@ -93,7 +132,15 @@ export default {
         ocupacao: null,
       },
     },
+
     ocupacoes: ocupacoes,
+
+    contadores: {
+      nomeCompleto: 0,
+      dataNascimento: 0,
+      email: 0,
+      ocupacao: 0,
+    },
   }),
 
   mounted() {
@@ -368,7 +415,7 @@ export default {
       if (!nomeArray.length) {
         return {
           valido: false,
-          mensagemErro: 'Nome é requerido',
+          mensagemErro: 'Nome é obrigatório',
         };
       } else if (!nomeArray[1]) {
         return {
@@ -468,6 +515,10 @@ export default {
 
     selecionarOcupacao(ocupacao) {
       this.cotacao.identificacao.ocupacao = ocupacao.code;
+    },
+
+    consolar() {
+      console.log('consolei');
     },
   },
 };

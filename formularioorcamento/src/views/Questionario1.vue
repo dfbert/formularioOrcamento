@@ -176,7 +176,54 @@ export default {
       }
       return dispositivosCodigo;
     },
+
+    dispositivosIncendioSelecionadosValidation() {
+      if (this.cotacao.questionarios['1'].dispositivosIncendioSelecionados.length == 0) {
+        return {
+          valido: false,
+          mensagemErro:
+            'Você precisa selecionar pelo menos uma das opções de dispositivos de incêndio, caso não tenha nenhum selecione a opção "NENHUM"',
+        };
+      } else {
+        return {
+          valido: true,
+        };
+      }
+    },
+
+    dispositivosRouboSelecionadosValidation() {
+      if (this.cotacao.questionarios['1'].dispositivosRouboSelecionados.length == 0) {
+        return {
+          valido: false,
+          mensagemErro:
+            'Você precisa selecionar pelo menos uma das opções de dispositivos contra roubo, caso não tenha nenhum selecione a opção "NENHUM"',
+        };
+      } else {
+        return {
+          valido: true,
+        };
+      }
+    },
+
+    formularioValidation() {
+      const arrays = ['dispositivosIncendioSelecionados', 'dispositivosRouboSelecionados'];
+
+      for (let array of arrays) {
+        const arrayValidation = this[`${array}Validation`];
+        if (!arrayValidation.valido) {
+          return {
+            valido: false,
+            mensagemErro: arrayValidation.mensagemErro,
+          };
+        }
+      }
+
+      return {
+        valido: true,
+      };
+    },
   },
+
   beforeMount() {
     if (JSON.parse(localStorage.getItem('cotacao'))) {
       let cotacao = JSON.parse(localStorage.getItem('cotacao'));
@@ -191,6 +238,7 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   methods: {
     removerDispositivo(codigo, tipo) {
       let nome = tipo == 'incendio' ? 'dispositivosIncendioSelecionados' : 'dispositivosRouboSelecionados';
@@ -201,6 +249,7 @@ export default {
         }
       }
     },
+
     selecionardispositivo(dispositivo, tipo) {
       let nome = tipo == 'incendio' ? 'dispositivosIncendioSelecionados' : 'dispositivosRouboSelecionados';
       let nenhumCodigo = tipo == 'incendio' ? 'nenhumIncendio' : 'nenhumRoubo';
@@ -215,11 +264,22 @@ export default {
         this.cotacao.questionarios['1'][nome].push(dispositivo);
       }
     },
+
     voltar() {
       this.$router.back();
     },
 
     avancar() {
+      const formValidation = this.formularioValidation;
+
+      if (!formValidation.valido) {
+        return this.$swal.fire({
+          icon: 'error',
+          title: 'Ops...',
+          text: formValidation.mensagemErro,
+        });
+      }
+
       localStorage.setItem('cotacao', JSON.stringify(this.cotacao));
       let proximo;
       for (const quest of Object.keys(this.cotacao.questionarios).reverse()) {
