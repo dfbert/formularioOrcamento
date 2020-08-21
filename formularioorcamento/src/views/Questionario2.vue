@@ -33,6 +33,7 @@
       <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
         <input
           @focus="contadores.numero++"
+          :class="{ 'mb-1': !numeroValidation.valido && contadores.numero != 0 }"
           type="text"
           id="numero"
           placeholder="Número"
@@ -48,7 +49,13 @@
         <label for="piso">Piso:</label>
       </div>
       <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
-        <select @focus="contadores.piso++" name="piso" id="piso" v-model="cotacao.questionarios['2'].piso">
+        <select
+          @focus="contadores.piso++"
+          name="piso"
+          id="piso"
+          v-model="cotacao.questionarios['2'].piso"
+          :class="{ 'mb-1': !pisoValidation.valido && contadores.piso != 0 }"
+        >
           <option :value="null" disabled>Selecione o piso</option>
           <option value="Sobrado">Sobrado</option>
           <option value="Subsolo">Subsolo</option>

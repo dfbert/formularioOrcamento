@@ -4,8 +4,10 @@
       <div class="container">
         <div class="logo">
           <img
+            @click="$router.push({ name: 'Home' })"
             src="https://www.postaliseguros.com.br/wp-content/uploads/2019/07/Logo_Postali_Corretora_Seguro_Pequeno_Site_145x_B5_5.png"
             alt
+            style="cursor: pointer;"
           />
         </div>
       </div>
