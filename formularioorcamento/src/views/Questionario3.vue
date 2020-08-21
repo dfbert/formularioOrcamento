@@ -1,22 +1,20 @@
 <template>
   <div>
     <div class="row p-2">
-      <div
-        class="message"
-      >Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!</div>
+      <div class="message">
+        Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções
+        na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem
+        compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!
+      </div>
     </div>
     <div class="row mb-4">
       <div class="col-6 text-right mb-3 d-flex align-items-center">
-        <label
-          for="localEspecial"
-        >Está localizado em lugares especiais e compartilhado com outros estabelecimentos?</label>
+        <label for="localEspecial"
+          >Está localizado em lugares especiais e compartilhado com outros estabelecimentos?</label
+        >
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
-        <select
-          name="localEspecial"
-          id="localEspecial"
-          v-model="cotacao.questionarios['3'].localEspecial"
-        >
+        <select name="localEspecial" id="localEspecial" v-model="cotacao.questionarios['3'].localEspecial">
           <option value="Shopping Center">Shopping Center</option>
           <option value="Aeroporto">Aeroporto</option>
           <option value="Ceasa ou Simulares">Ceasa ou Simulares</option>
@@ -30,11 +28,7 @@
         <label for="idadeDoImovel">Qual a idade do imóvel?</label>
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
-        <select
-          name="idadeDoImovel"
-          id="idadeDoImovel"
-          v-model="cotacao.questionarios['3'].idadeDoImovel"
-        >
+        <select name="idadeDoImovel" id="idadeDoImovel" v-model="cotacao.questionarios['3'].idadeDoImovel">
           <option value="até 5 anos">até 5 anos</option>
           <option value="de 6 a 10 anos">de 6 a 10 anos</option>
           <option value="de 11 a 15 anos">de 11 a 15 anos</option>
@@ -78,7 +72,7 @@
                 type="radio"
                 id="acima25madeira"
                 value="acima25madeira"
-                v-model="paredesExternas"
+                v-model="cotacao.questionarios['3'].paredesExternas"
               />Acima de 25% de construção de madeira
             </label>
           </div>
@@ -89,7 +83,7 @@
                 type="radio"
                 id="totalmenteMadeira"
                 value="totalmenteMadeira"
-                v-model="paredesExternas"
+                v-model="cotacao.questionarios['3'].paredesExternas"
               />Totalmente de madeira
             </label>
           </div>
@@ -168,9 +162,12 @@
       </div>
 
       <div class="col-12 my-4">
-        <div
-          class="message"
-        >Definir o valor do seguro requer um pouco de reflexão e depende de sua necessidade: Contrato de Aluguel: selecione o valor de seguro exigido no contrato de locação Seguro completo: considerar a soma de valores de reconstrução do imóvel equipamentos móveis estoque e matéria-prima Recomendamos adicionar entre 10% e 20% de margem de segurança no valor para eventuais oscilações. Tá com dúvida? Fale com nosso Consultor de Vendas!</div>
+        <div class="message">
+          Definir o valor do seguro requer um pouco de reflexão e depende de sua necessidade: Contrato de Aluguel:
+          selecione o valor de seguro exigido no contrato de locação Seguro completo: considerar a soma de valores de
+          reconstrução do imóvel equipamentos móveis estoque e matéria-prima Recomendamos adicionar entre 10% e 20% de
+          margem de segurança no valor para eventuais oscilações. Tá com dúvida? Fale com nosso Consultor de Vendas!
+        </div>
       </div>
 
       <div class="col-6 text-right mb-3 d-flex align-items-center">
@@ -178,39 +175,35 @@
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
         <div class="row">
-        <div class="col-12">
-          <label for="contratoAluguel">
-            <input
-              name="prioridade"
-              type="radio"
-              id="contratoAluguel"
-              value="contratoAluguel"
-              v-model="cotacao.questionarios['3'].prioridade"
-            />Quero atender APENAS o Contrato de Aluguel
-          </label>
-        </div>
-        <div class="col-12">
-          <label for="seguroCompleto">
-            <input
-              name="prioridade"
-              type="radio"
-              id="seguroCompleto"
-              value="seguroCompleto"
-              v-model="cotacao.questionarios['3'].prioridade"
-            />Quero um Seguro COMPLETO
-          </label>
-        </div>
+          <div class="col-12">
+            <label for="contratoAluguel">
+              <input
+                name="prioridade"
+                type="radio"
+                id="contratoAluguel"
+                value="contratoAluguel"
+                v-model="cotacao.questionarios['3'].prioridade"
+              />Quero atender APENAS o Contrato de Aluguel
+            </label>
+          </div>
+          <div class="col-12">
+            <label for="seguroCompleto">
+              <input
+                name="prioridade"
+                type="radio"
+                id="seguroCompleto"
+                value="seguroCompleto"
+                v-model="cotacao.questionarios['3'].prioridade"
+              />Quero um Seguro COMPLETO
+            </label>
+          </div>
         </div>
       </div>
       <div class="col-6 text-right mb-3 d-flex align-items-center">
         <label for="valorSeguro">Selecione o valor do Seguro Empresarial de sua preferência?</label>
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
-        <select
-          name="valorSeguro"
-          id="valorSeguro"
-          v-model="cotacao.questionarios['3'].valorSeguro"
-        >
+        <select name="valorSeguro" id="valorSeguro" v-model="cotacao.questionarios['3'].valorSeguro">
           <option value="50000">R$ 50.000</option>
           <option value="100000">R$ 100.000</option>
           <option value="200000">R$ 200.000</option>
@@ -237,27 +230,82 @@
 </template>
 
 <script>
-// @ is an alias to /src
 export default {
-  name: "Home",
+  name: 'Home',
+
   data: () => ({
     cotacao: {
-      questionarios: {}
-    }
+      questionarios: {},
+    },
   }),
 
+  computed: {
+    paredesExternasValidation() {
+      if (!this.cotacao.questionarios['3'].paredesExternas) {
+        return { valido: false, mensagemErro: 'Você precisa nos informar do que as paredes externas do imóvel são' };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    telhadoValidation() {
+      if (!this.cotacao.questionarios['3'].telhado) {
+        return {
+          valido: false,
+          mensagemErro: 'Você precisa nos informar do que o telhado do imóvel é feito',
+        };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    maisDeUmEnderecoComercialValidation() {
+      if (!this.cotacao.questionarios['3'].maisDeUmEnderecoComercial) {
+        return {
+          valido: false,
+          mensagemErro: 'Você precisa nos informar se possui mais de um endereço comercial',
+        };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    prioridadeValidation() {
+      if (!this.cotacao.questionarios['3'].prioridade) {
+        return { valido: false, mensagemErro: 'Você precisa nos informar sua prioridade' };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    formValidation() {
+      const campos = ['paredesExternas', 'telhado', 'maisDeUmEnderecoComercial', 'prioridade'];
+      for (let campo of campos) {
+        const campoValidation = this[`${campo}Validation`];
+        if (!campoValidation.valido) {
+          return {
+            valido: false,
+            mensagemErro: campoValidation.mensagemErro,
+          };
+        }
+      }
+
+      return { valido: true };
+    },
+  },
+
   beforeMount() {
-    if (JSON.parse(localStorage.getItem("cotacao"))) {
-      let cotacao = JSON.parse(localStorage.getItem("cotacao"));
-      if (cotacao.questionarios["3"] == null) {
-        cotacao.questionarios["3"] = {
-          localEspecial: "Shopping Center",
-          idadeDoImovel: "até 5 anos",
+    if (JSON.parse(localStorage.getItem('cotacao'))) {
+      let cotacao = JSON.parse(localStorage.getItem('cotacao'));
+      if (cotacao.questionarios['3'] == null) {
+        cotacao.questionarios['3'] = {
+          localEspecial: 'Shopping Center',
+          idadeDoImovel: 'até 5 anos',
           paredesExternas: null,
           telhado: null,
           maisDeUmEnderecoComercial: null,
           prioridade: null,
-          valorSeguro: 50000
+          valorSeguro: 50000,
         };
       }
       this.cotacao = cotacao;
@@ -265,21 +313,32 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   methods: {
     voltar() {
       this.$router.back();
     },
 
     avancar() {
-      localStorage.setItem("cotacao", JSON.stringify(this.cotacao));
+      const formValidation = this.formValidation;
+
+      if (!formValidation.valido) {
+        return this.$swal.fire({
+          icon: 'error',
+          title: 'Ops...',
+          text: formValidation.mensagemErro,
+        });
+      }
+
+      localStorage.setItem('cotacao', JSON.stringify(this.cotacao));
       let proximo;
       for (const quest of Object.keys(this.cotacao.questionarios).reverse()) {
         if (quest > 3) {
           proximo = `/questionario/${quest}`;
         }
       }
-      this.$router.push(proximo || "/contato");
-    }
-  }
+      this.$router.push(proximo || '/contato');
+    },
+  },
 };
 </script>
