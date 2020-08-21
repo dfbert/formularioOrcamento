@@ -91,7 +91,16 @@ export default {
     cotacao: {
       questionarios: {},
     },
+
+    contadores: {
+      perfilIdeal: 0,
+      tipoInvestimento: 0,
+      valorAporteInicial: 0,
+      investimentoMensal: 0,
+    },
   }),
+
+  computed: {},
 
   beforeMount() {
     if (JSON.parse(localStorage.getItem('cotacao'))) {
@@ -110,6 +119,7 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   methods: {
     voltar() {
       this.$router.back();

@@ -1,17 +1,20 @@
 <template>
   <div>
     <div class="row p-2">
-      <div class="message">
+      <div class="message col-12 mb-2">
         Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções
         na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem
         compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!
+      </div>
+      <div class="message col-12">
+        Campos com * são obrigatórios
       </div>
     </div>
 
     <!-- CEP -->
     <div class="row mb-4">
       <div class="col-12 text-left d-flex align-items-center">
-        <label for="cep">CEP</label>
+        <label for="cep">CEP *</label>
       </div>
       <div @click="contadores.cep++" class="col-12 text-left mb-3 d-flex flex-column align-items-end">
         <the-mask
@@ -29,7 +32,7 @@
 
       <!-- tipoImovel -->
       <div class="col-12 text-left d-flex align-items-center">
-        <label for="tipoImovel">Tipo de imóvel</label>
+        <label for="tipoImovel">Tipo de imóvel *</label>
         <p></p>
       </div>
       <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
@@ -52,7 +55,7 @@
 
       <!-- motivoLocacao -->
       <div class="col-12 text-left d-flex align-items-center">
-        <label for="motivoLocacao">Motivo da locação</label>
+        <label for="motivoLocacao">Motivo da locação *</label>
         <p></p>
       </div>
       <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
@@ -90,7 +93,7 @@
 
       <!-- quantidadeResponsaveis -->
       <div class="col-12 text-left d-flex align-items-center">
-        <label for="quantidadeResponsaveis">Quantidade de responsáveis no contrato de aluguel</label>
+        <label for="quantidadeResponsaveis">Quantidade de responsáveis no contrato de aluguel *</label>
         <p></p>
       </div>
       <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
@@ -123,7 +126,7 @@
 
     <!-- cpfResponsavel -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="cpfResponsavel">Qual o CPF do responsável no contrato de aluguel?</label>
+      <label for="cpfResponsavel">Qual o CPF do responsável no contrato de aluguel? *</label>
     </div>
     <div @click="contadores.cpfResponsavel++" class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <the-mask
@@ -141,7 +144,7 @@
 
     <!-- rgResponsavel -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="rgResponsavel">Qual o RG do responsável no contrato de aluguel?</label>
+      <label for="rgResponsavel">Qual o RG do responsável no contrato de aluguel? *</label>
     </div>
     <div @click="contadores.rgResponsavel++" class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <the-mask
@@ -159,7 +162,7 @@
 
     <!-- estadoCivil -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="estadoCivil">Estado Civil</label>
+      <label for="estadoCivil">Estado Civil *</label>
       <p></p>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
@@ -185,7 +188,7 @@
 
     <!-- cpfConjugue -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="cpfConjugue">CPF do Cônjugue?</label>
+      <label for="cpfConjugue">CPF do Cônjugue? *</label>
     </div>
     <div @click="contadores.cpfConjugue++" class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <the-mask
@@ -203,7 +206,7 @@
 
     <!-- dependentes -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="dependentes">Número de Dependentes?</label>
+      <label for="dependentes">Número de Dependentes? *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -221,7 +224,7 @@
 
     <!-- vinculoRenda -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="vinculoRenda">Tipo de vínculo que compõe sua renda</label>
+      <label for="vinculoRenda">Tipo de vínculo que compõe sua renda *</label>
       <p></p>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
@@ -248,7 +251,7 @@
 
     <!-- empresaOndeTrabalha -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="empresaOndeTrabalha">Nome da Empresa onde Trabalha?</label>
+      <label for="empresaOndeTrabalha">Nome da Empresa onde Trabalha? *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -269,7 +272,7 @@
 
     <!-- dataAdmissao -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="dataAdmissao">Data Admissão Empresa</label>
+      <label for="dataAdmissao">Data Admissão Empresa *</label>
     </div>
     <div @click="contadores.dataAdmissao++" class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <the-mask
@@ -287,7 +290,7 @@
 
     <!-- salarioMensal -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="salarioMensal">Informe seu salário mensal</label>
+      <label for="salarioMensal">Informe seu salário mensal *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -323,7 +326,7 @@
 
     <!-- valorAluguel -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="valorAluguel">Valor do Aluguel (R$)</label>
+      <label for="valorAluguel">Valor do Aluguel (R$) *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -340,7 +343,7 @@
 
     <!-- iptuMensal -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="iptuMensal">Valor do IPTU Mensal (R$)</label>
+      <label for="iptuMensal">Valor do IPTU Mensal (R$) *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -374,7 +377,7 @@
 
     <!-- contaDeAgua -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="contaDeAgua">Valor da conta de Água (R$)</label>
+      <label for="contaDeAgua">Valor da conta de Água (R$) *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -391,7 +394,7 @@
 
     <!-- contaDeLuz -->
     <div class="col-12 text-left d-flex align-items-center">
-      <label for="contaDeLuz">Valor da conta de Luz (R$)</label>
+      <label for="contaDeLuz">Valor da conta de Luz (R$) *</label>
     </div>
     <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
       <input
@@ -641,10 +644,10 @@ export default {
     },
 
     condominioValidation() {
-      if (!this.cotacao.questionarios['9'].condominio) {
-        return { valido: false, mensagemErro: 'Você deve nos informar o valor do condomínio' };
-      } else if (Number(this.cotacao.questionarios['9'].condominio) < 0) {
-        return { valido: false, mensagemErro: 'O valor do condomínio não pode ser negativo' };
+      const condominio = this.cotacao.questionarios['9'].condominio;
+
+      if (condominio && Number(condominio) < 0) {
+        return { valido: false, mensagemErro: 'O valor da conta de condomínio não pode ser negativo' };
       } else {
         return { valido: true };
       }
@@ -671,9 +674,9 @@ export default {
     },
 
     contaDeGasValidation() {
-      if (!this.cotacao.questionarios['9'].contaDeGas) {
-        return { valido: false, mensagemErro: 'Você deve nos informar o valor da conta de gás' };
-      } else if (Number(this.cotacao.questionarios['9'].contaDeGas) < 0) {
+      const contaDeGas = this.cotacao.questionarios['9'].contaDeGas;
+
+      if (contaDeGas && Number(contaDeGas) < 0) {
         return { valido: false, mensagemErro: 'O valor da conta de gás não pode ser negativo' };
       } else {
         return { valido: true };
