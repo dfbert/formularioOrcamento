@@ -1,19 +1,20 @@
 <template>
   <div>
     <div class="row">
-      <div
-        class="message"
-      >Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!</div>
+      <div class="message">
+        Sabemos que seu tempo é escasso! Por isso, nosso questionário foi montado sob medida com base em suas seleções
+        na tela anterior! Na Postali Seguros buscaremos as melhores ofertas disponíveis no mercado, grátis e sem
+        compromisso. Fique tranquilo! Cuidaremos dos seus dados e não enviaremos Spam! Também não gostamos disso!
+      </div>
     </div>
     <div class="row mb-4">
-      <div
-        class="message"
-      >Na Postali Seguros estimulamos as iniciativas contínuas de preservação do Meio Ambiente! Conte pra gente que você terá benefícios no preço.</div>
+      <div class="message">
+        Na Postali Seguros estimulamos as iniciativas contínuas de preservação do Meio Ambiente! Conte pra gente que
+        você terá benefícios no preço.
+      </div>
 
       <div class="col-6 text-right mb-3 d-flex align-items-center">
-        <label
-          for="reusoAgua"
-        >Tem programa contínuo de reuso, reaproveitamento ou uso eficiente de Água?</label>
+        <label for="reusoAgua">Tem programa contínuo de reuso, reaproveitamento ou uso eficiente de água?</label>
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
         <div class="row w-100">
@@ -71,9 +72,9 @@
         </div>
       </div>
       <div class="col-6 text-right mb-3 d-flex align-items-center">
-        <label
-          for="coletaeReciclagem"
-        >Tem programa contínuo de coleta seletiva e reciclagem de Resíduos Sólidos (lixo)?</label>
+        <label for="coletaeReciclagem"
+          >Tem programa contínuo de coleta seletiva e reciclagem de Resíduos Sólidos (lixo)?</label
+        >
       </div>
       <div class="col-6 text-left mb-3 d-flex align-items-center">
         <div class="row w-100">
@@ -108,23 +109,76 @@
   </div>
 </template>
 <script>
-// @ is an alias to /src
 export default {
-  name: "Home",
+  name: 'Home',
   data: () => ({
     cotacao: {
-      questionarios: {}
-    }
+      questionarios: {},
+    },
   }),
 
+  computed: {
+    reusoAguaValidation() {
+      if (!this.cotacao.questionarios['4'].reusoAgua) {
+        return {
+          valido: false,
+          mensagemErro:
+            'Você precisa nos informar se tem um programa contínuo de reuso, reaproveitamento ou uso eficiente de água',
+        };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    energiaSolarValidation() {
+      if (!this.cotacao.questionarios['4'].energiaSolar) {
+        return {
+          valido: false,
+          mensagemErro: 'Você precisa nos informar se tem um programa contínuo de utilização de energia solar',
+        };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    coletaeReciclagemValidation() {
+      if (!this.cotacao.questionarios['4'].coletaeReciclagem) {
+        return {
+          valido: false,
+          mensagemErro:
+            'Você precisa nos informar se tem um programa contínuo de coleta seletiva e reciclagem de resíduos sólidos(lixo)',
+        };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    formValidation() {
+      const campos = ['reusoAgua', 'energiaSolar', 'coletaeReciclagem'];
+      for (let campo of campos) {
+        const campoValidation = this[`${campo}Validation`];
+        if (!campoValidation.valido) {
+          return {
+            valido: false,
+            mensagemErro: campoValidation.mensagemErro,
+          };
+        }
+      }
+
+      return {
+        valido: true,
+      };
+    },
+  },
+
   beforeMount() {
-    if (JSON.parse(localStorage.getItem("cotacao"))) {
-      let cotacao = JSON.parse(localStorage.getItem("cotacao"));
-      if (cotacao.questionarios["4"] == null) {
-        cotacao.questionarios["4"] = {
+    if (JSON.parse(localStorage.getItem('cotacao'))) {
+      let cotacao = JSON.parse(localStorage.getItem('cotacao'));
+      if (cotacao.questionarios['4'] == null) {
+        cotacao.questionarios['4'] = {
           reusoAgua: null,
           energiaSolar: null,
-          coletaeReciclagem: null
+          coletaeReciclagem: null,
         };
       }
       this.cotacao = cotacao;
@@ -132,21 +186,32 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   methods: {
     voltar() {
       this.$router.back();
     },
 
     avancar() {
-      localStorage.setItem("cotacao", JSON.stringify(this.cotacao));
+      const formValidation = this.formValidation;
+
+      if (!formValidation.valido) {
+        return this.$swal.fire({
+          icon: 'error',
+          title: 'Ops...',
+          text: formValidation.mensagemErro,
+        });
+      }
+
+      localStorage.setItem('cotacao', JSON.stringify(this.cotacao));
       let proximo;
       for (const quest of Object.keys(this.cotacao.questionarios).reverse()) {
         if (quest > 4) {
           proximo = `/questionario/${quest}`;
         }
       }
-      this.$router.push(proximo || "/contato");
-    }
-  }
+      this.$router.push(proximo || '/contato');
+    },
+  },
 };
 </script>
