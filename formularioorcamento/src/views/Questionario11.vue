@@ -1,16 +1,19 @@
 <template>
   <div>
     <div class="row">
-      <div
-        class="message"
-      >Para definir o VALOR (Carta) do Consórcio, escolha o tipo de consórcio e valor da carta. Tá com dúvida? Fale com nosso Consultor de Vendas!</div>
+      <div class="message">
+        Para definir o VALOR (Carta) do Consórcio, escolha o tipo de consórcio e valor da carta. Tá com dúvida? Fale com
+        nosso Consultor de Vendas!
+      </div>
     </div>
     <div class="row mb-4">
-      <div class="col-6 text-right mb-3 d-flex align-items-center">
+      <div class="col-12 text-left d-flex align-items-center">
         <label for="tipoConsorcio">Selecione o tipo de consórcio:</label>
       </div>
-      <div class="col-6 text-left mb-3 d-flex align-items-center">
+      <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
         <select
+          @focus="contadores.tipoConsorcio++"
+          :class="{ 'mb-1': !tipoConsorcioValidation.valido && contadores.tipoConsorcio != 0 }"
           name="tipoConsorcio"
           id="tipoConsorcio"
           v-model="cotacao.questionarios['11'].tipoConsorcio"
@@ -24,13 +27,18 @@
           <option value="Consórcio de Serviços">Consórcio de Serviços</option>
           <option value="Outros Consórcios">Outros Consórcios</option>
         </select>
+        <small v-if="!tipoConsorcioValidation.valido && contadores.tipoConsorcio != 0" class="feedback-invalido mb-1">
+          {{ tipoConsorcioValidation.mensagemErro }}
+        </small>
       </div>
 
-      <div class="col-6 text-right mb-3 d-flex align-items-center">
+      <div class="col-12 text-left d-flex align-items-center">
         <label for="valorDaCarta">Selecione o valor da sua carta:</label>
       </div>
-      <div class="col-6 text-left mb-3 d-flex align-items-center">
+      <div class="col-12 text-left mb-3 d-flex flex-column align-items-end">
         <select
+          @focus="contadores.valorDaCarta++"
+          :class="{ 'mb-1': !valorDaCartaValidation.valido && contadores.valorDaCarta != 0 }"
           name="valorDaCarta"
           id="valorDaCarta"
           v-model="cotacao.questionarios['11'].valorDaCarta"
@@ -45,6 +53,9 @@
           <option value="Acima de R$ 2.000.000">Acima de R$ 2.000.000</option>
           <option value="Não desejo informar">Não desejo informar</option>
         </select>
+        <small v-if="!valorDaCartaValidation.valido && contadores.valorDaCarta != 0" class="feedback-invalido mb-1">
+          {{ valorDaCartaValidation.mensagemErro }}
+        </small>
       </div>
     </div>
 
@@ -53,20 +64,53 @@
   </div>
 </template>
 <script>
-// @ is an alias to /src
 export default {
-  name: "Home",
   data: () => ({
     cotacao: {
       questionarios: {},
     },
+
+    contadores: {
+      tipoConsorcio: 0,
+      valorDaCarta: 0,
+    },
   }),
 
+  computed: {
+    tipoConsorcioValidation() {
+      if (!this.cotacao.questionarios['11'].tipoConsorcio) {
+        return { valido: false, mensagemErro: 'Tipo do consórcio é obrigatório ' };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    valorDaCartaValidation() {
+      if (!this.cotacao.questionarios['11'].valorDaCarta) {
+        return { valido: false, mensagemErro: 'Valor da carta é obrigatório ' };
+      } else {
+        return { valido: true };
+      }
+    },
+
+    formValidation() {
+      const campos = ['tipoConsorcio', 'valorDaCarta'];
+      for (let campo of campos) {
+        const campoValidation = this[`${campo}Validation`];
+        if (!campoValidation.valido) {
+          return { valido: false, mensagemErro: campoValidation.mensagemErro };
+        }
+      }
+
+      return { valido: true };
+    },
+  },
+
   beforeMount() {
-    if (JSON.parse(localStorage.getItem("cotacao"))) {
-      let cotacao = JSON.parse(localStorage.getItem("cotacao"));
-      if (cotacao.questionarios["11"] == null) {
-        cotacao.questionarios["11"] = {
+    if (JSON.parse(localStorage.getItem('cotacao'))) {
+      let cotacao = JSON.parse(localStorage.getItem('cotacao'));
+      if (cotacao.questionarios['11'] == null) {
+        cotacao.questionarios['11'] = {
           tipoConsorcio: null,
           valorDaCarta: null,
         };
@@ -76,19 +120,31 @@ export default {
       this.$router.push(`/`);
     }
   },
+
   methods: {
     voltar() {
       this.$router.back();
     },
+
     avancar() {
-      localStorage.setItem("cotacao", JSON.stringify(this.cotacao));
+      const formValidation = this.formValidation;
+
+      if (!formValidation.valido) {
+        return this.$swal.fire({
+          icon: 'error',
+          title: 'Ops...',
+          text: formValidation.mensagemErro,
+        });
+      }
+
+      localStorage.setItem('cotacao', JSON.stringify(this.cotacao));
       let proximo;
       for (const quest of Object.keys(this.cotacao.questionarios).reverse()) {
         if (quest > 10) {
           proximo = `/questionario/${quest}`;
         }
       }
-      this.$router.push(proximo || "/contato");
+      this.$router.push(proximo || '/contato');
     },
   },
 };
